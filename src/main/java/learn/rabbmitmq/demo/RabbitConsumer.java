@@ -29,6 +29,8 @@ public class RabbitConsumer implements Serializable {
         // 创建信道
         Channel channel = connection.createChannel();
         // 设置客户端最多接收未被ack的消息的个数
+        // 允许限制信道上的消费者所能保持的最大未确认消息的数量
+        // 设置为0表示没有上限
         channel.basicQos(64);
 
         DefaultConsumer consumer = new DefaultConsumer(channel) {

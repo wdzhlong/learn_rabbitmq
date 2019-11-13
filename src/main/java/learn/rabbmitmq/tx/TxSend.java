@@ -20,15 +20,17 @@ public class TxSend {
 
         String msg = "hello tx";
         try {
+            // 将信道置为事务模式
             channel.txSelect();
 
             channel.basicPublish("",QUEUE_NAME,null,msg.getBytes());
-
+            // 提交事务
             channel.txCommit();
 
         }catch (Exception e){
-            channel.txRollback();
             System.out.println("send message txRollback");
+            // 回滚事务
+            channel.txRollback();
         }
 
         channel.close();

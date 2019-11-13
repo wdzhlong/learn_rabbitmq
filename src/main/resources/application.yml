@@ -1,2 +1,20 @@
 server:
   port: 8080
+
+spring:
+  application:
+    name: learnRabbitmq
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: zhl
+    password: zhl
+    #设置虚拟主机，默认 /
+    virtual-host: /user
+    #开启消息确认，确认消息已发送到交换机(Exchange)
+    publisher-confirms: true
+    #开启消息确认，确认消息已发送到队列(Queue)
+    publisher-returns: true
+
+
+

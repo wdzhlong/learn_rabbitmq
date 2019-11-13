@@ -29,6 +29,7 @@ public class Send3 {
         // 通道添加监听
         channel.addConfirmListener(new ConfirmListener() {
             //没有问题的handleAck
+            @Override
             public void handleAck(long l, boolean b) throws IOException {
                 if (b){
                     System.out.println("---handleAck---multiple");
@@ -39,6 +40,7 @@ public class Send3 {
                 }
             }
             // handleNack 表示回执有问题的
+            @Override
             public void handleNack(long l, boolean b) throws IOException {
                 if (b){
                     System.out.println("---handleNack---multiple");
